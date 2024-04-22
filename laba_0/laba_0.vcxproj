@@ -128,7 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BoxSource.cpp" />
-    <ClCompile Include="Container.cpp" />
+    <ClCompile Include="ContainerSource.cpp" />
     <ClCompile Include="laba_0.cpp" />
   </ItemGroup>
   <ItemGroup>

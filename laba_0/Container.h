@@ -14,6 +14,7 @@ private:
 
 public:
 	Container(int length, int width, int height, double maxWeight);
+	Container();
 
 	int getLength() const { return length; }
 	int getWidth() const { return width; }
@@ -32,8 +33,20 @@ public:
 		if (height <= 0) throw std::exception("Высота отрицательная или равна 0");
 		this->height = height;
 	}
-	void seMaxtWeight(double maxWeight) {
+	void setMaxWeight(double maxWeight) {
 		if (maxWeight <= 0) throw std::exception("Масса отрицательная или равна 0");
 		this->maxWeight = maxWeight;
 	}
 };
+
+//Количество коробок в контейнере
+int boxCounter(std::vector<Box> vector);
+
+//Суммарный вес коробок
+double totalWeight();
+
+//Сумарная стоймость коробок
+int totalCost();
+
+//Получение коробки по индексу
+Box getBox(std::vector<Box> vector, int i);
