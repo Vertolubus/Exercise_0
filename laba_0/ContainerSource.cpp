@@ -16,11 +16,11 @@
 		this->maxWeight = 0;
 	}
 
-	int boxCounter() {
+	int Container::boxCounter() {
 		return vector.size();
 	}
 
-	double totalWeight(){
+	double Container::totalWeight(){
 		double sumOfWeight = 0;
 		for (int i = 0; i < vector.size(); i++) {
 			sumOfWeight += vector[i].getWeight();
@@ -28,7 +28,7 @@
 		return sumOfWeight;
 	}
 
-	int totalCost(){
+	int Container::totalCost(){
 		double sumOfValue = 0;
 		for (int i = 0; i < vector.size(); i++) {
 			sumOfValue += vector[i].getValue();
@@ -36,15 +36,23 @@
 		return sumOfValue;
 	}
 
-	Box getBox(std::vector<Box> vector, int i) {
+	Box Container::getBox(int i) {
 		return vector.at(i);
 	}
 
-	void addingABox(Box box) {
+	int Container::addingABox(Box box) {
 		std::vector<Box> vector;
 		if (box.getWeight() + totalWeight() > this->maxWeight) {
-
+			throw std::exception("Масса коробок превосходит максимальную грузоподъемность контейнера");
+		}
+		else {
+			vector.push_back(box);
+			return boxCounter();
 		}
 	}
 
+	void Container::deleteBox(int i) {
+		auto iter = vector.cbegin();
+		vector.erase(iter + i);
+	}
 

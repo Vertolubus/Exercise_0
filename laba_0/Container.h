@@ -16,6 +16,13 @@ public:
 	Container(int length, int width, int height, double maxWeight);
 	Container();
 
+	int boxCounter(); 	//Количество коробок в контейнере
+	double totalWeight();  	//Суммарный вес коробок
+	int totalCost();  	//Сумарная стоймость коробок
+	Box getBox(int i);  	//Получение коробки по индексу
+	int addingABox(Box box);  //Добавление коробки
+	void deleteBox(int i);  //Удаление коробки по индексу
+
 	int getLength() const { return length; }
 	int getWidth() const { return width; }
 	int getHeight() const { return height; }
@@ -38,15 +45,3 @@ public:
 		this->maxWeight = maxWeight;
 	}
 };
-
-//Количество коробок в контейнере
-int boxCounter(std::vector<Box> vector);
-
-//Суммарный вес коробок
-double totalWeight();
-
-//Сумарная стоймость коробок
-int totalCost();
-
-//Получение коробки по индексу
-Box getBox(std::vector<Box> vector, int i);

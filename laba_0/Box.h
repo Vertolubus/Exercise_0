@@ -1,7 +1,6 @@
 #pragma once
 
 #include <iostream>
-#include <vector>
 
 //Задание 1. Структура Box с полями и конструктор.
 class Box
