@@ -125,7 +125,7 @@ std::istream& operator>>(std::istream& in, Box& box)
 }
 
 
-std::ostream& operator<<(std::ostream& out, Box& box)
+std::ostream& operator<<(std::ostream& out, const Box& box)
 {
 	out << "Длина: " << box.getLength() << "; ширина: " << box.getWidth() << "; высота: " << box.getHeight() << "; вес: " << box.getWeight() << "; цена содержимого: " << box.getValue();
 	return out;

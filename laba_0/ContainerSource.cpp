@@ -1,6 +1,9 @@
+#pragma once
+
+#include<iostream>
 #include "Container.h"
 #include <vector>
-#pragma once
+
 
 	Container::Container(int length, int width, int height, double maxWeight)
 	{
@@ -16,7 +19,7 @@
 		this->maxWeight = 0;
 	}
 
-	int Container::boxCounter() {
+	int Container::boxCounter() const{
 		return vector.size();
 	}
 
@@ -36,7 +39,7 @@
 		return sumOfValue;
 	}
 
-	Box Container::getBox(int i) {
+	Box Container::getBox(int i) const{
 		return vector.at(i);
 	}
 
@@ -56,3 +59,31 @@
 		vector.erase(iter + i);
 	}
 
+	std::istream& operator>>(std::istream& in, Container& container)
+	{
+		int length, width, height;
+		double maxWeight;
+
+		in >> length >> width >> height >> maxWeight;
+
+		container.setLength(length);
+		container.setWidth(width);
+		container.setHeight(height);
+		container.setMaxWeight(maxWeight);
+
+		return in;
+	}
+
+
+	std::ostream& operator<<(std::ostream& out, const Container& container)
+	{
+		out << "Длина: " << container.getLength() << "; ширина: " << container.getWidth() << "; высота: " << container.getHeight() << "; максимально допустимый вес: " << container.getMaxWeight() << std::endl;
+		for (int i = 0; i < container.boxCounter(); i++) {
+			out << "Коробка # " << i + 1 << ":  " << container.getBox(i) << std::endl;
+		}
+		return out;
+	}
+
+	Box& Container::operator[](const int i) {
+		return this->vector[i];
+	}

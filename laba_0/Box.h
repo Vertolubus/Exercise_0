@@ -64,4 +64,4 @@ bool operator==(const Box& box1, const Box& box2);
 //Задание 7. Операторы ввода/вывода (>> и <<) для коробок в произвольные потоки. 
 std::istream& operator>>(std::istream& in, Box& box);
 
-std::ostream& operator<<(std::ostream& out, Box& box);
+std::ostream& operator<<(std::ostream& out, const Box& box);

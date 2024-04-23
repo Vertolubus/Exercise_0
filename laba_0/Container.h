@@ -16,12 +16,13 @@ public:
 	Container(int length, int width, int height, double maxWeight);
 	Container();
 
-	int boxCounter(); 	//Количество коробок в контейнере
+	int boxCounter() const; 	//Количество коробок в контейнере
 	double totalWeight();  	//Суммарный вес коробок
 	int totalCost();  	//Сумарная стоймость коробок
-	Box getBox(int i);  	//Получение коробки по индексу
+	Box getBox(int i) const;  	//Получение коробки по индексу
 	int addingABox(Box box);  //Добавление коробки
 	void deleteBox(int i);  //Удаление коробки по индексу
+	Box& operator[](const int i);  //возвращение i-го элемента
 
 	int getLength() const { return length; }
 	int getWidth() const { return width; }
@@ -45,3 +46,7 @@ public:
 		this->maxWeight = maxWeight;
 	}
 };
+
+
+std::istream& operator>>(std::istream& in, Container& container);  //Оператор ввода
+std::ostream& operator<<(std::ostream& out, const Container& container);  //Оператор вывода
