@@ -17,10 +17,10 @@ public:
 	Container();
 
 	int boxCounter() const; 	//Количество коробок в контейнере
-	double totalWeight();  	//Суммарный вес коробок
-	int totalCost();  	//Сумарная стоймость коробок
+	double totalWeight();  	//Суммарный вес содержимого коробок
+	int totalCost();  	//Сумарная стоймость содержимого коробок
 	Box getBox(int i) const;  	//Получение коробки по индексу
-	int addingABox(Box box);  //Добавление коробки
+	int addingABox(Box& box);  //Добавление коробки
 	void deleteBox(int i);  //Удаление коробки по индексу
 	Box& operator[](const int i);  //возвращение i-го элемента
 

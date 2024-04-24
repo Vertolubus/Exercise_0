@@ -24,7 +24,8 @@ int main()
 		std::cout << box[i];
 		std::cout << std::endl;
 	}
-	std::cout << "Введите номер коробки, которую вы хотите изменить: ";
+	std::cout << std::endl;
+	/*std::cout << "Введите номер коробки, которую вы хотите изменить: ";
 	int n;
 	std::cin >> n;
 	std::cout << std::endl;
@@ -32,7 +33,37 @@ int main()
 	std::cin >> box[n - 1];
 	std::cout << "Новые параметры коробки #" << n - 1 << std::endl;
 	std::cout << box[n - 1];
+	*/
 
+	Container container = Container(100, 50, 250, 35);
+
+	std::cout << "Количество коробок: " << container.boxCounter() << " (Correct is 0)" << std::endl;
+
+	container.addingABox(box[0]);
+	container.addingABox(box[1]);
+	container.addingABox(box[2]);
+	container.addingABox(box[3]);
+	container.addingABox(box[4]);
+
+	std::cout << container;
+	std::cout << "Количество коробок: " << container.boxCounter() << " (Correct is 5)" << std::endl;
+
+	std::cout << "Суммарный вес содержимого в коробках: " << container.totalWeight() << " (Correct is 30)" << std::endl;
+	std::cout << "Суммарная стоймость содержимого в коробках: " << container.totalCost() << " (Correct is 35)" << std::endl;
+
+	std::cout << container.getBox(2) << std::endl;
+	container.deleteBox(0);
+	container.deleteBox(3);
+
+	std::cout << container;
+	std::cout << "Количество коробок: " << container.boxCounter() << " (Correct is 3)" << std::endl;
+
+	std::cout << container[2] << std::endl;
+	container[2] = box[4];
+	std::cout << container[2] << std::endl;
+	std::cout << "--------------" << std::endl;
+	std::cin >> container;
+	std::cout << container;
 }
 
 

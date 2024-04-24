@@ -43,8 +43,7 @@
 		return vector.at(i);
 	}
 
-	int Container::addingABox(Box box) {
-		std::vector<Box> vector;
+	int Container::addingABox(Box& box) {
 		if (box.getWeight() + totalWeight() > this->maxWeight) {
 			throw std::exception("Масса коробок превосходит максимальную грузоподъемность контейнера");
 		}
@@ -55,21 +54,30 @@
 	}
 
 	void Container::deleteBox(int i) {
-		auto iter = vector.cbegin();
-		vector.erase(iter + i);
+		vector.erase(vector.begin() + i);
 	}
 
 	std::istream& operator>>(std::istream& in, Container& container)
 	{
+		Box box;
 		int length, width, height;
 		double maxWeight;
+		//size_t boxCounter();
 
 		in >> length >> width >> height >> maxWeight;
 
-		container.setLength(length);
-		container.setWidth(width);
-		container.setHeight(height);
-		container.setMaxWeight(maxWeight);
+		container = Container(length, width, height, maxWeight);
+
+		for (int i = 0; i < container.boxCounter(); i++) {
+			in >> box;
+			try {
+				container.addingABox(box);
+			}
+			catch(std::exception){
+				std::cout << "Масса коробки выходит за пределы допустимой грузоподъемности!!!";
+				break;
+			}
+		}
 
 		return in;
 	}
