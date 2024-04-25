@@ -2,6 +2,7 @@
 #include "Box.h"
 #include "Container.h"
 
+using namespace BoxAndContainer;
 
 int main()
 {
@@ -64,6 +65,13 @@ int main()
 	std::cout << "--------------" << std::endl;
 	std::cin >> container;
 	std::cout << container;
+
+	try {
+		container.setHeight(-1);
+	}
+	catch (std::exception) {
+		std::cout << "Error!";
+	}
 }
 
 

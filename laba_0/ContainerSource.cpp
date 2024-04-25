@@ -4,7 +4,7 @@
 #include "Container.h"
 #include <vector>
 
-
+namespace BoxAndContainer {
 	Container::Container(int length, int width, int height, double maxWeight)
 	{
 		this->length = length;
@@ -19,11 +19,11 @@
 		this->maxWeight = 0;
 	}
 
-	int Container::boxCounter() const{
+	int Container::boxCounter() const {
 		return vector.size();
 	}
 
-	double Container::totalWeight(){
+	double Container::totalWeight() {
 		double sumOfWeight = 0;
 		for (int i = 0; i < vector.size(); i++) {
 			sumOfWeight += vector[i].getWeight();
@@ -31,15 +31,15 @@
 		return sumOfWeight;
 	}
 
-	int Container::totalCost(){
-		double sumOfValue = 0;
+	int Container::totalCost() {
+		int sumOfValue = 0;
 		for (int i = 0; i < vector.size(); i++) {
 			sumOfValue += vector[i].getValue();
 		}
 		return sumOfValue;
 	}
 
-	Box Container::getBox(int i) const{
+	Box Container::getBox(int i) const {
 		return vector.at(i);
 	}
 
@@ -62,23 +62,23 @@
 		Box box;
 		int length, width, height;
 		double maxWeight;
-		//size_t boxCounter();
+		int n;
 
 		in >> length >> width >> height >> maxWeight;
 
 		container = Container(length, width, height, maxWeight);
+		in >> n;
 
-		for (int i = 0; i < container.boxCounter(); i++) {
+		for (int i = 0; i < n; i++) {
 			in >> box;
 			try {
 				container.addingABox(box);
 			}
-			catch(std::exception){
-				std::cout << "Масса коробки выходит за пределы допустимой грузоподъемности!!!";
+			catch (std::exception) {
+				std::cout << "Масса коробки выходит за пределы допустимой грузоподъемности!!!" << std::endl;
 				break;
 			}
 		}
-
 		return in;
 	}
 
@@ -95,3 +95,4 @@
 	Box& Container::operator[](const int i) {
 		return this->vector[i];
 	}
+}

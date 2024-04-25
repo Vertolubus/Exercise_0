@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Box.h"
 
+namespace BoxAndContainer {
 	Box::Box(int length, int width, int height, double weight, int value)
 	{
 		this->length = length;
@@ -129,4 +130,5 @@ std::ostream& operator<<(std::ostream& out, const Box& box)
 {
 	out << "Длина: " << box.getLength() << "; ширина: " << box.getWidth() << "; высота: " << box.getHeight() << "; вес: " << box.getWeight() << "; цена содержимого: " << box.getValue();
 	return out;
+}
 }
