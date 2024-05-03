@@ -51,7 +51,7 @@ namespace BoxAndContainer {
 	double Container::totalWeight() const {
 		double sumOfWeight = 0;
 
-		for (auto box : vector) { 
+		for (const auto& box : vector) { 
 			sumOfWeight += box.getWeight();
 		}
 
@@ -61,7 +61,7 @@ namespace BoxAndContainer {
 	int Container::totalCost() const {
 		int sumOfValue = 0;
 
-		for (auto box : vector) {
+		for (const auto& box : vector) {
 			sumOfValue += box.getValue();
 		}
 
@@ -74,7 +74,7 @@ namespace BoxAndContainer {
 
 	int Container::addBox(Box& box) {
 		if (box.getWeight() + totalWeight() > this->maxWeight) {
-			throw std::exception("Масса коробок превосходит максимальную грузоподъемность контейнера");
+			throw OutOfMaxExeption("Масса коробок превосходит максимальную грузоподъемность контейнера");
 		}
 		vector.push_back(box);
 		return count();
@@ -101,8 +101,9 @@ namespace BoxAndContainer {
 			try {
 				container.addBox(box);
 			}
-			catch (std::exception) {
-				throw std::exception("Масса коробки выходит за пределы допустимой грузоподъемности!!!");
+			catch (OutOfMaxExeption& e) {
+				std::cout << "Масса коробки выходит за пределы допустимой грузоподъемности!!!";
+				break;
 			}
 		}
 		return in;
@@ -118,7 +119,7 @@ namespace BoxAndContainer {
 		return out;
 	}
 
-	Box& Container::operator[](int i) {
+	Box& Container::operator[](const int i) {
 		return vector[i];
 	}
 }

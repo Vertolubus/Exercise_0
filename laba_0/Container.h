@@ -25,8 +25,7 @@ namespace BoxAndContainer {
 		Box getBox(int i) const;  	//Получение коробки по индексу
 		int addBox(Box& box);  //Добавление коробки
 		void deleteBox(int i);  //Удаление коробки по индексу
-		Box& operator[](int i);  //возвращение i-го элемента
-		//const Box& operator[](const int i) const;  //возвращение i-го элемента
+		Box& operator[](const int i);  //возвращение i-го элемента
 
 		int getLength() const;
 		int getWidth() const;
@@ -37,6 +36,11 @@ namespace BoxAndContainer {
 		void setWidth(int width);
 		void setHeight(int height);
 		void setMaxWeight(double maxWeight);
+	};
+
+	class OutOfMaxExeption : public std::exception {
+	public:
+		OutOfMaxExeption(const char* theMessage) : exception(theMessage) { }
 	};
 
 	std::istream& operator>>(std::istream& in, Container& container);  //Оператор ввода
