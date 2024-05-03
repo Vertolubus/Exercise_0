@@ -7,7 +7,9 @@ namespace BoxAndContainer {
 	class Box
 	{
 	private:
-		int length, width, height; //длина, ширина и высота коробки в см
+		int length; //Длина
+		int width; //Ширина
+		int height; //Высота 
 		double weight; //масса коробки в кг
 		int value; // стоимость содержимого в копейках
 
@@ -15,32 +17,17 @@ namespace BoxAndContainer {
 		Box(int length, int width, int height, double weight, int value);
 		Box();
 
-		int getLength() const { return length; }
-		int getWidth() const { return width; }
-		int getHeight() const { return height; }
-		double getWeight() const { return weight; }
-		int getValue() const { return value; }
+		int getLength() const;
+		int getWidth() const;
+		int getHeight() const;
+		double getWeight() const;
+		int getValue() const;
 
-		void setLength(int length) {
-			if (length <= 0) throw std::exception("Длина отрицательная или равна 0");
-			this->length = length;
-		}
-		void setWidth(int width) {
-			if (width <= 0) throw std::exception("Ширина отрицательная или равна 0");
-			this->width = width;
-		}
-		void setHeight(int height) {
-			if (height <= 0) throw std::exception("Высота отрицательная или равна 0");
-			this->height = height;
-		}
-		void setWeight(double weight) {
-			if (weight <= 0) throw std::exception("Масса отрицательная или равна 0");
-			this->weight = weight;
-		}
-		void setValue(int value) {
-			if (value < 0) throw std::exception("Стоймость содержимого отрицательная");
-			this->value = value;
-		}
+		void setLength(int length);
+		void setWidth(int width);
+		void setHeight(int height);
+		void setWeight(double weight);
+		void setValue(int value);
 	};
 
 

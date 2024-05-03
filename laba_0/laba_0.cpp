@@ -14,10 +14,10 @@ int main()
 	box[3] = Box(4, 5, 6, 7, 8);
 	box[4] = Box(5, 6, 7, 8, 9);
 	std::cout << "Суммарная стоимость: " << sumValue(box, 5) << " (Correct is 35)" << std::endl; //Задание 2.
-	std::cout << "Не превосходят ли значения сумму длины, высоты и ширины всех коробок заданное значение:  " 
+	std::cout << "Не превосходят ли значения сумму длины, высоты и ширины всех коробок заданное значение:  "
 		<< lessThanTheSpecifiedValue(box, 5, 99) << " (Correct is 1)" << std::endl; //Задание 3.
-	std::cout << "Максимальный вес коробок, не превосходящий максимальный объем коробок: " << volumCheck(box, 5, 61) 
-		<< " (Correcr is 6)" << std::endl; //Задание 4.
+	std::cout << "Максимальный вес коробок, не превосходящий максимальный объем коробок: " << volumCheck(box, 5, 61)
+		<< " (Correct is 6)" << std::endl; //Задание 4.
 	std::cout << "Можно ли вложить одну коробку в другую, начиная с самой маленькой: " << matryoshka(box, 5) << " (Correct is 1)" << std::endl; //Задание 5.
 	for (int i = 0; i < 5; i++)
 	{
@@ -38,26 +38,26 @@ int main()
 
 	Container container = Container(100, 50, 250, 35);
 
-	std::cout << "Количество коробок: " << container.boxCounter() << " (Correct is 0)" << std::endl;
+	std::cout << "Количество коробок: " << container.count() << " (Correct is 0)" << std::endl;
 
-	container.addingABox(box[0]);
-	container.addingABox(box[1]);
-	container.addingABox(box[2]);
-	container.addingABox(box[3]);
-	container.addingABox(box[4]);
+	container.addBox(box[0]);
+	container.addBox(box[1]);
+	container.addBox(box[2]);
+	container.addBox(box[3]);
+	container.addBox(box[4]);
 
 	std::cout << container;
-	std::cout << "Количество коробок: " << container.boxCounter() << " (Correct is 5)" << std::endl;
+	std::cout << "Количество коробок: " << container.count() << " (Correct is 5)" << std::endl;
 
 	std::cout << "Суммарный вес содержимого в коробках: " << container.totalWeight() << " (Correct is 30)" << std::endl;
 	std::cout << "Суммарная стоймость содержимого в коробках: " << container.totalCost() << " (Correct is 35)" << std::endl;
 
-	std::cout << container.getBox(2) << std::endl;
+	std::cout << container.getBox(2) << " (Correct is Длина: 3; ширина: 4; высота: 5; вес: 6; цена содержимого : 7)" << std::endl;
 	container.deleteBox(0);
 	container.deleteBox(3);
 
 	std::cout << container;
-	std::cout << "Количество коробок: " << container.boxCounter() << " (Correct is 3)" << std::endl;
+	std::cout << "Количество коробок: " << container.count() << " (Correct is 3)" << std::endl;
 
 	std::cout << container[2] << std::endl;
 	container[2] = box[4];
@@ -70,7 +70,7 @@ int main()
 		container.setHeight(-1);
 	}
 	catch (std::exception) {
-		std::cout << "Error!";
+		std::cout << "Error! (It is correct)";
 	}
 }
 

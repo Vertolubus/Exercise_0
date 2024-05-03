@@ -127,8 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BoxSource.cpp" />
-    <ClCompile Include="ContainerSource.cpp" />
+    <ClCompile Include="Box.cpp" />
+    <ClCompile Include="Container.cpp" />
     <ClCompile Include="laba_0.cpp" />
   </ItemGroup>
   <ItemGroup>
