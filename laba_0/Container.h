@@ -38,11 +38,6 @@ namespace BoxAndContainer {
 		void setMaxWeight(double maxWeight);
 	};
 
-	class OutOfMaxExeption : public std::exception {
-	public:
-		OutOfMaxExeption(const char* theMessage) : exception(theMessage) { }
-	};
-
 	std::istream& operator>>(std::istream& in, Container& container);  //Оператор ввода
 	std::ostream& operator<<(std::ostream& out, const Container& container);  //Оператор вывода
 }

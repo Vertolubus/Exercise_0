@@ -1,4 +1,5 @@
 #include "Container.h"
+#include "OutOfMaxExeption.h"
 
 namespace BoxAndContainer {
 	Container::Container(int length, int width, int height, double maxWeight) : length(length), width(width), height(height), maxWeight(maxWeight) {}
